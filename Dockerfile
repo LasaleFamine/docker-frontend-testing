@@ -38,7 +38,8 @@ RUN apt-get update -qqy \
 # ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 ## Java 8
-RUN \
+RUN apt-get update -qqy && \
+  apt-get install -qqy software-properties-common python-software-properties && \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
   apt-get update && \
