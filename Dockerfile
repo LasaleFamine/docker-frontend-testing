@@ -29,3 +29,10 @@ RUN apt-get update -qqy \
   && rm /tmp/firefox.tar.bz2 \
   && mv /opt/firefox /opt/firefox-$FIREFOX_VERSION \
   && ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
+
+## Java
+RUN apt-get update -qqy && \
+  apt-get install -y openjdk-7-jre && \
+  rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
