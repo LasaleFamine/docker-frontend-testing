@@ -40,14 +40,14 @@ RUN apt-get update -qqy \
   && mv /opt/firefox /opt/firefox-$FIREFOX_VERSION \
   && ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
 
-## Java 7
-# RUN apt-get update -qqy && \
-#   apt-get install -y openjdk-7-jre && \
-#   rm -rf /var/lib/apt/lists/*
-# ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
-
 ## Java 8
-RUN echo "deb http://http.debian.net/debian jessie-backports main" | tee --append /etc/apt/sources.list.d/jessie-backports.list > /dev/null && \
-    apt-get update && \
-    apt-get install -qqy -t jessie-backports openjdk-8-jdk && \
-    update-java-alternatives -s java-1.8.0-openjdk-amd64
+RUN apt-get update -qqy && \
+  apt-get install -y openjdk-8-jre && \
+  rm -rf /var/lib/apt/lists/*
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
+## Java 8 (debian)
+# RUN echo "deb http://http.debian.net/debian jessie-backports main" | tee --append /etc/apt/sources.list.d/jessie-backports.list > /dev/null && \
+#     apt-get update && \
+#     apt-get install -qqy -t jessie-backports openjdk-8-jdk && \
+#     update-java-alternatives -s java-1.8.0-openjdk-amd64
