@@ -38,7 +38,10 @@ RUN apt-get update -qqy \
 # ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 ## Java 8
-RUN apt-get update && \
-  apt-get install -y openjdk-8-jre
+RUN apt-get update -qqy && \
+  apt-get install -qqy software-properties-common python-software-properties && \
+  add-apt-repository ppa:openjdk-r/ppa && \
+  apt-get update && \
+  apt-get install openjdk-8-jre
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
