@@ -38,10 +38,7 @@ RUN apt-get update -qqy \
 # ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 ## Java 8
-RUN apt-get update -qqy && \
-  apt-get install -qqy software-properties-common python-software-properties && \
-  add-apt-repository ppa:openjdk-r/ppa && \
-  apt-get update && \
-  apt-get install openjdk-8-jre
-
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+RUN echo "deb http://http.debian.net/debian jessie-backports main" | tee --append /etc/apt/sources.list.d/jessie-backports.list > /dev/null && \
+    apt-get update && \
+    apt-get install -qqy -t jessie-backports openjdk-8-jdk
+    update-java-alternatives -s java-1.8.0-openjdk-amd64
