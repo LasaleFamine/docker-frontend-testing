@@ -7,6 +7,7 @@
   - Xvfb
   - Chrome
   - Firefox
+  - Java 8 installed (for Selenium and [co.](https://github.com/Polymer/web-component-tester))
 
 ## Pull
 
