@@ -3,7 +3,7 @@ FROM ubuntu
 LABEL Author Alessio Occhipinti <info@godev.space>
 
 ## Node and yarn
-RUN apt-get update && \
+RUN apt-get update && apt-get install -qqy curl && \
     apt-get install -qqy build-essential libssl-dev && \
     curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh && \
     bash install_nvm.sh && \
