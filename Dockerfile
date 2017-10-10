@@ -5,13 +5,15 @@ LABEL Author Alessio Occhipinti <info@godev.space>
 ## Utils
 RUN apt-get update && \
     apt-get install -qqy curl && \
-    apt-get install wget
+    apt-get install wget && \
+    apt-get install git
 
 ## Node and yarn
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get update && \
     apt-get install -qqy nodejs
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash && \
+    $PATH=$PATH:$HOME/.yarn/bin/yarn
 
 ## Add Xvfb
 RUN apt-get update && apt-get -y install \
