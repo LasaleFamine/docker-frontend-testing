@@ -5,8 +5,8 @@ LABEL Author Alessio Occhipinti <info@godev.space>
 ## Utils
 RUN apt-get update && \
     apt-get install -qqy curl && \
-    apt-get install wget && \
-    apt-get install git
+    apt-get install -qqy wget && \
+    apt-get install -qqy git
 
 ## Node and yarn
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
