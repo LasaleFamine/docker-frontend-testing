@@ -43,8 +43,8 @@ RUN echo "alias chrome=google-chrome" >> ~/.bashrc && \
 #   && mv /opt/firefox /opt/firefox-$FIREFOX_VERSION \
 #   && ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
 
-RUN sudo apt-get update && \
-    sudo apt-get install -qqy \
+RUN apt-get update && \
+    apt-get install -qqy \
       firefox
 
 ## Java 8
