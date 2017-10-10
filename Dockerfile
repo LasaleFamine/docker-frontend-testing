@@ -33,8 +33,10 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
 RUN apt-get update && apt-get install -y \
 	    google-chrome-stable
-RUN echo "alias chrome=google-chrome" >> ~/.bashrc && \
-    echo "alias chrome=google-chrome-stable" >> ~/.bashrc
+RUN mv /usr/bin/google-chrome /usr/bin/google-chrome-orig \
+    && echo '#!/bin/bash' > /usr/bin/google-chrome \
+    && echo '/usr/bin/google-chrome-orig --no-sandbox --disable-setuid-sandbox --allow-sandbox-debugging "$@"' >> /usr/bin/google-chrome  \
+    && chmod +x /usr/bin/google-chrome
 
 ## Firefox
 # ARG FIREFOX_VERSION=55.0.3
