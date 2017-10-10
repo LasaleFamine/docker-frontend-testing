@@ -3,7 +3,9 @@ FROM ubuntu
 LABEL Author Alessio Occhipinti <info@godev.space>
 
 ## Utils
-RUN apt-get update && apt-get install -qqy curl
+RUN apt-get update && \
+    apt-get install -qqy curl && \
+    apt-get install wget
 
 ## Node and yarn
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
