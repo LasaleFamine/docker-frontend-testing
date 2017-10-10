@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -qqy curl
 ## Node and yarn
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get update && \
-    apt-get install nodejs
+    apt-get install -qqy nodejs
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 ## Add Xvfb
