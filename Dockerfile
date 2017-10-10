@@ -12,8 +12,10 @@ RUN apt-get update && \
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get update && \
     apt-get install -qqy nodejs
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-RUN PATH=$PATH:$HOME/.yarn/bin/yarn
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && apt-get install -qqy yarn
 
 ## Add Xvfb
 RUN apt-get update && apt-get -y install \
