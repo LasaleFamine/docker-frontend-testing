@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -qqy curl && \
     apt-get install -qqy build-essential libssl-dev && \
     curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh && \
     bash install_nvm.sh && \
-    source ~/.bashrc && \
     nvm use 8
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
