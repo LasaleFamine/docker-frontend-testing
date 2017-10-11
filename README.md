@@ -4,6 +4,8 @@
 
 ## Features
 
+  - Nodejs (latest)
+  - Yarn (latest)
   - Xvfb
   - Chrome
   - Firefox
