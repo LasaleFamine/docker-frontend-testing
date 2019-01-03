@@ -6,6 +6,7 @@ LABEL Author Alessio Occhipinti <info@godev.space>
 RUN apt-get update && \
     apt-get install -qqy curl && \
     apt-get install -qqy wget && \
+    apt-get install -qqy gnupg && \
     apt-get install -qqy git
 
 ## Node and yarn
